@@ -10,6 +10,8 @@ public class Main {
         list.addLast(43);
         list.addLast(66);
         list.insertAfter(80,90);
+        list.pop();
+        list.popLast();
         list.show();
     }
 }
