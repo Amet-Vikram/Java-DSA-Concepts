@@ -10,8 +10,7 @@ public class Main {
         list.addLast(43);
         list.addLast(66);
         list.insertAfter(80,90);
-        list.pop();
-        list.popLast();
+        System.out.println(list.indexOf(30));
         list.show();
     }
 }

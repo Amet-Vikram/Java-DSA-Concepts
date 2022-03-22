@@ -105,4 +105,15 @@ public class LinkedList {
         tail = previous;
         tail.next = null;
     }
+
+    public int indexOf(int item){
+        int index = 0;
+        var current = head;
+        while (current != null){
+            if (current.value == item) return index;
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
 }
