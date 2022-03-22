@@ -1,7 +1,5 @@
 package com.bridgelabz.dsa.linkedlist;
 
-import java.util.NoSuchElementException;
-
 public class LinkedList {
 
     private class Node{
@@ -30,17 +28,29 @@ public class LinkedList {
 
     public void show(){
         Node currNode = head;
-        System.out.print("LinkedList: ");
         // Traverse through the LinkedList
+        System.out.print("[ ");
         while (currNode != null) {
             // Print the data at current node
             System.out.print(currNode.value + " ");
             // Go to next node
             currNode = currNode.next;
         }
+        System.out.println("]");
     }
 
     private boolean isEmpty(){
         return head == null;
+    }
+
+    public void addFirst(int item){
+        var node = new Node(item);
+
+        if (isEmpty())
+            head = tail = node;
+        else{
+            node.next = head;
+            head = node;
+        }
     }
 }
