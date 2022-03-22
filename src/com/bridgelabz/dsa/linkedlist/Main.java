@@ -9,8 +9,9 @@ public class Main {
         list.addLast(80);
         list.addLast(43);
         list.addLast(66);
-        list.insertAfter(80,90);
-        System.out.println(list.indexOf(30));
+        System.out.println(list.size());
+        list.deleteNode(30);
+        System.out.println(list.size());
         list.show();
     }
 }

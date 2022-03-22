@@ -116,4 +116,31 @@ public class LinkedList {
         }
         return -1;
     }
+
+    public int size(){
+        int index = 0;
+        var current = head;
+        while (current != null){
+            current = current.next;
+            index++;
+        }
+        return index;
+    }
+
+    void deleteNode(int element){
+        Node temp = head, prevNode = null;
+
+        if (temp != null && temp.value == element) {
+            head = temp.next;
+            return;
+        }
+        while (temp != null && temp.value != element) {
+            prevNode = temp;
+            temp = temp.next;
+        }
+        if (temp == null)
+            return;
+        prevNode.next = temp.next;
+    }
+
 }
