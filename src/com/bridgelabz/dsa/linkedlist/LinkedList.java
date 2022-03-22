@@ -1,5 +1,7 @@
 package com.bridgelabz.dsa.linkedlist;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList {
 
     private class Node{
@@ -78,5 +80,17 @@ public class LinkedList {
             target = newNode; //Adding new node
             newNode.next = newHead; //Connecting remaining list
         }
+    }
+
+    public void pop(){
+        if (isEmpty())
+            throw new NoSuchElementException();
+        if (head == tail){
+            head = tail = null;
+            return;
+        }
+        var second = head.next;
+        head.next = null;
+        head = second;
     }
 }
