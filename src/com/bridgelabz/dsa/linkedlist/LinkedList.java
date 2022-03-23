@@ -4,17 +4,8 @@ import java.util.NoSuchElementException;
 
 public class LinkedList {
 
-    private class Node{
-        private int value;
-        private Node next;
-
-        public Node(int value){
-            this.value = value;
-        }
-    }
-
-    private Node head;
-    private Node tail;
+    Node head;
+    Node tail;
 
     public void addLast(int item){
         var node = new Node(item); //Temporary node to store
@@ -24,6 +15,28 @@ public class LinkedList {
         else {
             tail.next = node; //Connecting new node to tail
             tail = node; //Updating new tail
+        }
+    }
+
+    public void sortList(){
+        Node current = head, index = null;
+        int temp;
+        if (isEmpty()) {
+            return;
+        }
+        else {
+            while (current != null) {
+                index = current.next;
+                while (index != null) {
+                    if (current.value > index.value) {
+                        temp = current.value;
+                        current.value = index.value;
+                        index.value = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            }
         }
     }
 
