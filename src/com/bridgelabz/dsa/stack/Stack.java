@@ -16,7 +16,4 @@ public class Stack<K> {
             top = node;
         }
     }
-
-
-
 }
