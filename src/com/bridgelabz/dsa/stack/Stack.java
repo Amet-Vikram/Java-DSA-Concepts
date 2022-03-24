@@ -16,4 +16,18 @@ public class Stack<K> {
             top = node;
         }
     }
+
+    protected boolean isEmpty(){ // Check if the list has no nodes
+        return top == null;
+    }
+
+    public <K extends Comparable<K>> K peek(){
+        if (!isEmpty()) {
+            return (K) top.value;
+        }
+        else {
+            System.out.println("Stack is empty");
+            return null;
+        }
+    }
 }
