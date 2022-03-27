@@ -2,13 +2,13 @@ package com.bridgelabz.dsa.linkedlist;
 
 import java.util.NoSuchElementException;
 
-public class LinkedList {
+public class LinkedList<K extends Comparable<K>> {
 
-    Node head;
-    Node tail;
+    Node<K> head;
+    Node<K> tail;
 
     public void addLast(int item){
-        var node = new Node(item); //Temporary node to store
+        var node = new Node<K>(item); //Temporary node to store
         node.value = item; //Adding value to new node
         if(isEmpty())
             head = tail = node;
@@ -18,8 +18,8 @@ public class LinkedList {
         }
     }
 
-    public void sortList(){
-        Node current = head, index = null;
+    private void sortList(){
+        Node<K> current = head, index = null;
         int temp;
         if (isEmpty()) {
             return;
@@ -41,7 +41,7 @@ public class LinkedList {
     }
 
     public void show(){
-        Node currNode = head;
+        Node<K> currNode = head;
         System.out.print("[ ");
         while (currNode != null) { // Traverse through the LinkedList
             System.out.print(currNode.value + " "); // Print the data at current node
@@ -55,7 +55,7 @@ public class LinkedList {
     }
 
     public void addFirst(int item){
-        var node = new Node(item); // Temporary node to store
+        var node = new Node<K>(item); // Temporary node to store
         if (isEmpty()) // Check if the list is empty
             head = tail = node;
         else{
@@ -64,7 +64,7 @@ public class LinkedList {
         }
     }
 
-    private Node getPrevious(Node node){
+    private Node<K> getPrevious(Node<K> node){
         var current = head;
         while (current != null){
             if (current.next == node) return current;
@@ -73,7 +73,7 @@ public class LinkedList {
         return null;
     }
 
-    private Node getPrevious(int value){
+    private Node<K> getPrevious(int value){
         var current = head;
         while (current != null){
             if (current.value == value) return current;
@@ -85,7 +85,7 @@ public class LinkedList {
     public void insertAfter(int element, int value){
         var target = getPrevious(element); // List before the new node locus
         var newHead = target.next; // List after the new node locus
-        var newNode = new Node(value); // New Node
+        var newNode = new Node<K>(value); // New Node
         if(isEmpty())
             head = tail = newNode;
         else{
@@ -141,7 +141,7 @@ public class LinkedList {
     }
 
     void deleteNode(int element){
-        Node temp = head, prevNode = null;
+        Node<K> temp = head, prevNode = null;
 
         if (temp != null && temp.value == element) {
             head = temp.next;
@@ -155,5 +155,4 @@ public class LinkedList {
             return;
         prevNode.next = temp.next;
     }
-
 }

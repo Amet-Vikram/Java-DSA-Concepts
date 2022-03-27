@@ -1,10 +1,10 @@
 package com.bridgelabz.dsa.linkedlist;
 
-public class OrderedLinkedList extends LinkedList {
+public class OrderedLinkedList<K extends Comparable<K>> extends LinkedList<K> {
 
     public void addLast(int value) {
-        Node new_node = new Node(value);
-        Node current;
+        Node<K> new_node = new Node<>(value);
+        Node<K> current;
         if (super.head == null || head.value >= new_node.value) {
             new_node.next = head;
             head = new_node;
